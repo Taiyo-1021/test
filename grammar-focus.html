@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Grammar Focus 索引</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: deep-navy hero with airmail edge, sticky search + week chips, week sections led by oversized week numerals, Day cards in an auto-fill grid */
+:root{
+  --bg:#eef1f7; --surface:#ffffff; --ink:#131c2e; --muted:#5b6782; --line:#d6dce8;
+  --navy:#0f1b33; --navy-fg:#f2f4fa; --navy-muted:#9fb0d4;
+  --blue:#2a4fb8; --red:#d0424a; --chip:#e2e7f2; --num:#cfd7e8;
+  --display:"Instrument Serif","Times New Roman",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0b111d;--surface:#141c2b;--ink:#e7ebf4;--muted:#98a4bd;--line:#263147;--navy:#070c16;--navy-fg:#f2f4fa;--navy-muted:#8c9cc0;--blue:#8faaf0;--red:#ec7d83;--chip:#1c2537;--num:#222d42;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b111d;--surface:#141c2b;--ink:#e7ebf4;--muted:#98a4bd;--line:#263147;--navy:#070c16;--navy-fg:#f2f4fa;--navy-muted:#8c9cc0;--blue:#8faaf0;--red:#ec7d83;--chip:#1c2537;--num:#222d42;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.65}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.hero{background:var(--navy);color:var(--navy-fg);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:repeating-linear-gradient(-45deg,var(--red) 0 16px,var(--navy) 16px 24px,#3d63d1 24px 40px,var(--navy) 40px 48px)}
+.hero-in{padding-block:56px 64px;display:grid;gap:18px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--navy-muted);text-transform:uppercase}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(48px,10vw,108px);line-height:.95;margin:0;letter-spacing:-.01em;display:flex;flex-wrap:wrap;align-items:baseline;gap:.1em .35em}
+.hero h1 em{font-style:italic;color:#9db4f5}
+.h1-sub{font-family:var(--body);font-weight:900;font-size:.32em;letter-spacing:.3em;color:var(--navy-fg);border:2px solid currentColor;padding:.15em .35em .15em .6em;line-height:1.2;transform:translateY(-.25em)}
+.hero p{margin:0;color:var(--navy-muted);max-width:56ch}
+.stats{display:flex;flex-wrap:wrap;gap:10px 28px;font-family:var(--mono);font-size:13px;color:var(--navy-muted)}
+.stats b{display:block;font-size:26px;color:var(--navy-fg);font-weight:700;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar-in{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding-block:12px}
+.search{flex:1 1 260px;max-width:380px;font:inherit;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink)}
+.chips{flex:1 1 400px;min-width:0;display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:thin}
+.chip{flex:none;display:inline-flex;gap:7px;align-items:center;padding:6px 12px;border-radius:999px;background:var(--chip);color:var(--ink);text-decoration:none;font-size:13px;white-space:nowrap;transition:background .15s,color .15s}
+.chip b{font-family:var(--mono);font-size:11px;color:var(--red)}
+.chip:hover{background:var(--ink);color:var(--bg)}
+.search:focus-visible,.chip:focus-visible,.pdf:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+main{display:grid;gap:64px;padding-block:48px 80px}
+.week{scroll-margin-top:96px;display:grid;gap:20px}
+.week-head{display:flex;align-items:flex-end;gap:18px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.week-num{font-family:var(--display);font-size:clamp(64px,9vw,96px);line-height:.8;color:var(--num);font-variant-numeric:tabular-nums}
+.week-label{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--red)}
+.week h2{font-size:clamp(19px,2.4vw,24px);font-weight:900;margin:2px 0 0;line-height:1.35;text-wrap:balance}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.day{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px 20px;display:flex;flex-direction:column;gap:10px;transition:transform .18s,box-shadow .18s,border-color .18s}
+.day:hover{transform:translateY(-3px);border-color:var(--blue);box-shadow:0 12px 28px -14px color-mix(in srgb,var(--blue) 55%,transparent)}
+.day-top{display:flex;justify-content:space-between;align-items:center}
+.day-n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);display:inline-flex;align-items:baseline;gap:6px}
+.day-n b{font-size:22px;letter-spacing:0;color:var(--blue);font-variant-numeric:tabular-nums}
+.count{font-family:var(--mono);font-size:11px;color:var(--muted);background:var(--chip);border-radius:999px;padding:2px 8px}
+.day h3{margin:0;font-size:16.5px;font-weight:700;line-height:1.45}
+.items{margin:0;padding:0;list-style:none;counter-reset:i;display:grid;gap:6px;font-size:14px}
+.items li{counter-increment:i;display:grid;grid-template-columns:1.8em 1fr;gap:4px}
+.items li::before{content:counter(i,decimal-leading-zero);font-family:var(--mono);font-size:11px;color:var(--red);padding-top:.25em}
+.pdf{margin-top:auto;align-self:stretch;display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--navy-fg);background:var(--navy);text-decoration:none;border-radius:10px;padding:10px 14px;margin-top:8px;transition:background .15s}
+.pdf svg{width:14px;height:14px;transition:transform .15s}
+.pdf:hover{background:var(--blue)}
+.pdf:hover svg{transform:translate(2px,-2px)}
+.empty{color:var(--muted)}
+footer{color:var(--muted);font-size:12px;padding-block:0 48px}
+@media (prefers-reduced-motion:reduce){.day,.pdf,.pdf svg,.chip{transition:none}.day:hover{transform:none}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+<div class="hero"><div class="wrap hero-in">
+  <span class="eyebrow">Pre-study-abroad English · Week 1–12</span>
+  <h1><span>Grammar <em>Focus</em></span><span class="h1-sub">索引</span></h1>
+  <p>全12週の Grammar Focus を1か所にまとめました。復習したい文法を見つけて、そのDayの Step2 教材を開いてください。</p>
+  <div class="stats"><span><b>12</b>weeks</span><span><b>60</b>days</span><span><b>212</b>grammar points</span></div>
+</div></div>
+<div class="bar"><div class="wrap bar-in">
+  <input id="q" class="search" type="search" placeholder="文法で検索（例：仮定法、whose、現在完了）" aria-label="文法で検索">
+  <nav class="chips" aria-label="週へ移動"><a href="#week1" class="chip"><b>01</b>文型</a><a href="#week2" class="chip"><b>02</b>不定詞・動名詞</a><a href="#week3" class="chip"><b>03</b>時制</a><a href="#week4" class="chip"><b>04</b>助動詞</a><a href="#week5" class="chip"><b>05</b>比較級・最上級</a><a href="#week6" class="chip"><b>06</b>仮定法</a><a href="#week7" class="chip"><b>07</b>現在完了</a><a href="#week8" class="chip"><b>08</b>関係詞</a><a href="#week9" class="chip"><b>09</b>時制のミックス・〜ed形の発展・完了形の発展</a><a href="#week10" class="chip"><b>10</b>賛成・反対表現</a><a href="#week11" class="chip"><b>11</b>Week1〜10の文法の発展</a><a href="#week12" class="chip"><b>12</b>全文法の総復習</a></nav>
+</div></div>
+<main class="wrap"><section class="week" id="week1">
+<header class="week-head"><span class="week-num" aria-hidden="true">01</span><div><span class="week-label">WEEK 1</span><h2>文型（5文型の土台）</h2></div></header>
+<div class="days"><article class="day" data-text="第1文型・第2文型 品詞の基本 s・v・o・c と m 連結動詞（be / feel / look / become） cが名詞になる例 第1文型（sv）・第2文型（svc）">
+<div class="day-top"><span class="day-n">DAY<b>1</b></span><span class="count">5 items</span></div>
+<h3>第1文型・第2文型</h3>
+<ol class="items"><li>品詞の基本</li><li>S・V・O・C と M</li><li>連結動詞（be / feel / look / become）</li><li>Cが名詞になる例</li><li>第1文型（SV）・第2文型（SVC）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1wfOVSYteodmODwwG1lPLknstL0lxKxgH/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="第3文型 自動詞と他動詞 句（前置詞句・to不定詞句・動名詞句） 節（主節・従属節） 第3文型（svo）">
+<div class="day-top"><span class="day-n">DAY<b>2</b></span><span class="count">4 items</span></div>
+<h3>第3文型</h3>
+<ol class="items"><li>自動詞と他動詞</li><li>句（前置詞句・to不定詞句・動名詞句）</li><li>節（主節・従属節）</li><li>第3文型（SVO）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1006oJuIT-meN0NZKNOn4VAJV3rEEmd94/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="第4文型 第4文型でよく使う動詞（give / show / teach / tell / send / buy） 第3文型と第4文型の見分け方 o1とo2の並び順と代名詞の形 第4文型（svoo）">
+<div class="day-top"><span class="day-n">DAY<b>3</b></span><span class="count">4 items</span></div>
+<h3>第4文型</h3>
+<ol class="items"><li>第4文型でよく使う動詞（give / show / teach / tell / send / buy）</li><li>第3文型と第4文型の見分け方</li><li>O1とO2の並び順と代名詞の形</li><li>第4文型（SVOO）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1HtQzWyvStCDMJjxZ80vww1Kj70JVxPt9/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="節の3種類＋svoo svooの再確認（動詞のあとの2つはイコール？） 副詞節 名詞節 形容詞節 svooの書き換え（to / for）">
+<div class="day-top"><span class="day-n">DAY<b>4</b></span><span class="count">5 items</span></div>
+<h3>節の3種類＋SVOO</h3>
+<ol class="items"><li>SVOOの再確認（動詞のあとの2つはイコール？）</li><li>副詞節</li><li>名詞節</li><li>形容詞節</li><li>SVOOの書き換え（to / for）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1QFyNLj-pSvWix_y0WRIjmCmhpHqCTItI/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="第5文型 o1とo2/cのイコール見分けチェック 副詞・前置詞の復習とm総合 疑問文・否定文でのsvの語順変化 第5文型（svoc）">
+<div class="day-top"><span class="day-n">DAY<b>5</b></span><span class="count">4 items</span></div>
+<h3>第5文型</h3>
+<ol class="items"><li>O1とO2/Cのイコール見分けチェック</li><li>副詞・前置詞の復習とM総合</li><li>疑問文・否定文でのSVの語順変化</li><li>第5文型（SVOC）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1MHymyc6Vm8gghE_Vim3wwMESh5LRnrZ3/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article></div></section><section class="week" id="week2">
+<header class="week-head"><span class="week-num" aria-hidden="true">02</span><div><span class="week-label">WEEK 2</span><h2>不定詞・動名詞</h2></div></header>
+<div class="days"><article class="day" data-text="want to / like to / try to want to＋動詞の原形 like to / like＋-ing try to＋動詞の原形 because＋主語＋動詞">
+<div class="day-top"><span class="day-n">DAY<b>8</b></span><span class="count">4 items</span></div>
+<h3>want to / like to / try to</h3>
+<ol class="items"><li>want to＋動詞の原形</li><li>like to / like＋-ing</li><li>try to＋動詞の原形</li><li>because＋主語＋動詞</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1-dczSNRIFFNm6jlDyfzlgjeC8ruRqDm5/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="to不定詞の3用法 to不定詞の基本 名詞の働き：〜すること 副詞の働き：〜するために 形容詞の働き：〜するための / 〜すべき 形容詞の働き【tips】：前の名詞のsvoc上の役割 to不定詞に主語を足す（it is 形容詞 for 人 to〜） to不定詞の否定（not to〜）">
+<div class="day-top"><span class="day-n">DAY<b>9</b></span><span class="count">7 items</span></div>
+<h3>to不定詞の3用法</h3>
+<ol class="items"><li>to不定詞の基本</li><li>名詞の働き：〜すること</li><li>副詞の働き：〜するために</li><li>形容詞の働き：〜するための / 〜すべき</li><li>形容詞の働き【Tips】：前の名詞のSVOC上の役割</li><li>to不定詞に主語を足す（It is 形容詞 for 人 to〜）</li><li>to不定詞の否定（not to〜）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/12bYsl1MufHiaTw5uhluZAl7Ffbd9hBsh/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="不定詞の応用 感情の形容詞＋to（〜してうれしい / 驚いた） 動詞＋人＋to（ask / tell / teach など） toがいらない不定詞①：使役（make / let / have） toがいらない不定詞②：知覚（see / hear / feel） seem / happen / come to 応用①：to不定詞の受動態・進行形・完了形 応用②：形式主語 it is 形容詞 to〜">
+<div class="day-top"><span class="day-n">DAY<b>10</b></span><span class="count">7 items</span></div>
+<h3>不定詞の応用</h3>
+<ol class="items"><li>感情の形容詞＋to（〜してうれしい / 驚いた）</li><li>動詞＋人＋to（ask / tell / teach など）</li><li>toがいらない不定詞①：使役（make / let / have）</li><li>toがいらない不定詞②：知覚（see / hear / feel）</li><li>seem / happen / come to</li><li>応用①：to不定詞の受動態・進行形・完了形</li><li>応用②：形式主語 It is 形容詞 to〜</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/10MGYeAFhP4ZUWYi3_ct091GYewZ2acld/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="動名詞 動名詞の基本の形 動名詞が主語（s）になる形 動名詞が目的語（o）になる形 動名詞だけを目的語にとる動詞（mind / enjoy / avoid / finish など） 動名詞の否定（not＋-ing） 動名詞の意味上の主語">
+<div class="day-top"><span class="day-n">DAY<b>11</b></span><span class="count">6 items</span></div>
+<h3>動名詞</h3>
+<ol class="items"><li>動名詞の基本の形</li><li>動名詞が主語（S）になる形</li><li>動名詞が目的語（O）になる形</li><li>動名詞だけを目的語にとる動詞（mind / enjoy / avoid / finish など）</li><li>動名詞の否定（not＋-ing）</li><li>動名詞の意味上の主語</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1QT3gZ41QvQTeTfHwz4CdADiHOr_hjsXk/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="不定詞と動名詞の使い分け 動名詞とto不定詞のニュアンスの違い 不定詞を続ける動詞 動名詞を続ける動詞 不定詞と動名詞で意味が変わる動詞（try / remember / stop / forget） 不定詞と動名詞で同じ意味を表す動詞（start / like / can&#x27;t stand など）">
+<div class="day-top"><span class="day-n">DAY<b>12</b></span><span class="count">5 items</span></div>
+<h3>不定詞と動名詞の使い分け</h3>
+<ol class="items"><li>動名詞とto不定詞のニュアンスの違い</li><li>不定詞を続ける動詞</li><li>動名詞を続ける動詞</li><li>不定詞と動名詞で意味が変わる動詞（try / remember / stop / forget）</li><li>不定詞と動名詞で同じ意味を表す動詞（start / like / can&#x27;t stand など）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1C7RyD49akvqVRvNZf-VcApIDoUEY8ZXb/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article></div></section><section class="week" id="week3">
+<header class="week-head"><span class="week-num" aria-hidden="true">03</span><div><span class="week-label">WEEK 3</span><h2>時制</h2></div></header>
+<div class="days"><article class="day" data-text="現在形と現在進行形 現在形：習慣・事実・繰り返すこと（頻度の語） 現在形：確定した予定・時刻表 現在進行形：今していること・最近していること 現在形と現在進行形の使い分け（状態動詞は進行形にしない）">
+<div class="day-top"><span class="day-n">DAY<b>15</b></span><span class="count">4 items</span></div>
+<h3>現在形と現在進行形</h3>
+<ol class="items"><li>現在形：習慣・事実・繰り返すこと（頻度の語）</li><li>現在形：確定した予定・時刻表</li><li>現在進行形：今していること・最近していること</li><li>現在形と現在進行形の使い分け（状態動詞は進行形にしない）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1PO_Eiql6QdK-oaJFfSjzZeHzRFXUUOId/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="過去形・過去進行形 規則動詞の過去形（-ed） 不規則動詞の過去形 過去進行形（was / were＋-ing） be動詞の過去形（was / were） 時を表す語と時系列のつなぎ語（first / then / after that / finally）">
+<div class="day-top"><span class="day-n">DAY<b>16</b></span><span class="count">5 items</span></div>
+<h3>過去形・過去進行形</h3>
+<ol class="items"><li>規則動詞の過去形（-ed）</li><li>不規則動詞の過去形</li><li>過去進行形（was / were＋-ing）</li><li>be動詞の過去形（was / were）</li><li>時を表す語と時系列のつなぎ語（First / Then / After that / Finally）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1PMIS6RIYtcvGGs51_F6u859OkWuBgNX1/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="未来の表し方 will：意志（その場で決めたこと・約束・申し出）＋予測 be going to：前から決めている予定・そうなりそうなこと 現在進行形で表す未来（be going toとの使い分け）">
+<div class="day-top"><span class="day-n">DAY<b>17</b></span><span class="count">3 items</span></div>
+<h3>未来の表し方</h3>
+<ol class="items"><li>will：意志（その場で決めたこと・約束・申し出）＋予測</li><li>be going to：前から決めている予定・そうなりそうなこと</li><li>現在進行形で表す未来（be going toとの使い分け）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1vivEOth7KfQZJLD6CGm8aJJVkkKTkiaw/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="進行形の応用 過去進行形の応用：when / while で「背景」と「出来事」を描く 未来進行形（will be＋-ing） 時制をつないで話す：過去 → 今 → これから be about to">
+<div class="day-top"><span class="day-n">DAY<b>18</b></span><span class="count">4 items</span></div>
+<h3>進行形の応用</h3>
+<ol class="items"><li>過去進行形の応用：when / while で「背景」と「出来事」を描く</li><li>未来進行形（will be＋-ing）</li><li>時制をつないで話す：過去 → 今 → これから</li><li>be about to</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1PaPHhTv8LqDlnijUYmaLwfmOz77UKR0V/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="昔と今を比べる used to：今とは違う過去の習慣・状態 couldn&#x27;t → can（was able to を含む） had to と was going to：過去の必要と意図 before / now / next：3つの時制で変化を語る 今週の時制まとめ">
+<div class="day-top"><span class="day-n">DAY<b>19</b></span><span class="count">5 items</span></div>
+<h3>昔と今を比べる</h3>
+<ol class="items"><li>used to：今とは違う過去の習慣・状態</li><li>couldn&#x27;t → can（was able to を含む）</li><li>had to と was going to：過去の必要と意図</li><li>Before / Now / Next：3つの時制で変化を語る</li><li>今週の時制まとめ</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1sFhDl1lL2XeOj6gv1rIfICaABODp93g9/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article></div></section><section class="week" id="week4">
+<header class="week-head"><span class="week-num" aria-hidden="true">04</span><div><span class="week-label">WEEK 4</span><h2>助動詞</h2></div></header>
+<div class="days"><article class="day" data-text="can / be able to 助動詞とは？ can：今ふつうにできること be able to：努力や経験を通してできること can / be able to の過去形（could / was able to） 他の助動詞＋be able to canの意味：可能性・許可・依頼 can と could のニュアンスの違い">
+<div class="day-top"><span class="day-n">DAY<b>22</b></span><span class="count">7 items</span></div>
+<h3>can / be able to</h3>
+<ol class="items"><li>助動詞とは？</li><li>can：今ふつうにできること</li><li>be able to：努力や経験を通してできること</li><li>can / be able to の過去形（could / was able to）</li><li>他の助動詞＋be able to</li><li>canの意味：可能性・許可・依頼</li><li>can と could のニュアンスの違い</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/14wxF2xL1qV4BeDFsAq3hJVhtAwnxgBDR/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="should / had better / be supposed to should：するべき・するはずだ had better：しないと困るから、した方がいい be supposed to：することになっている （テーマ外補足）should と be supposed to の違い">
+<div class="day-top"><span class="day-n">DAY<b>23</b></span><span class="count">4 items</span></div>
+<h3>should / had better / be supposed to</h3>
+<ol class="items"><li>should：するべき・するはずだ</li><li>had better：しないと困るから、した方がいい</li><li>be supposed to：することになっている</li><li>（テーマ外補足）should と be supposed to の違い</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1vLsTqK-f3qPKFb_dsKTt-FkQx2hvZtwc/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="未来・可能性の助動詞 might：〜かもしれない may：〜かもしれない will：〜するだろう would：〜だろう（想像・控えめ） be going to：〜するつもりだ 復習：can / could / should / be supposed to で未来の話をする （テーマ外補足）may / might / will / would の他の意味（許可・控えめな提案・might as well・拒否のwon&#x27;t・過去から見た未来・would often・丁寧な依頼・would you like...?・wouldn&#x27;t）">
+<div class="day-top"><span class="day-n">DAY<b>24</b></span><span class="count">7 items</span></div>
+<h3>未来・可能性の助動詞</h3>
+<ol class="items"><li>might：〜かもしれない</li><li>may：〜かもしれない</li><li>will：〜するだろう</li><li>would：〜だろう（想像・控えめ）</li><li>be going to：〜するつもりだ</li><li>復習：can / could / should / be supposed to で未来の話をする</li><li>（テーマ外補足）may / might / will / would の他の意味（許可・控えめな提案・might as well・拒否のwon&#x27;t・過去から見た未来・would often・丁寧な依頼・Would you like...?・wouldn&#x27;t）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1ZszSL0Fdzc9qwYI1Nrya5EAcqGUTL4yY/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="must / have to must：〜しなければならない have to：〜しなければならない must not と don&#x27;t have to（否定形の違い） （テーマ外補足）確信の must 会話で必須：have got to（gotta）">
+<div class="day-top"><span class="day-n">DAY<b>25</b></span><span class="count">5 items</span></div>
+<h3>must / have to</h3>
+<ol class="items"><li>must：〜しなければならない</li><li>have to：〜しなければならない</li><li>must not と don&#x27;t have to（否定形の違い）</li><li>（テーマ外補足）確信の must</li><li>会話で必須：have got to（gotta）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1ZMD5VRLQxajridCoY29tyLBjsZjTO87Q/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="助動詞でアドバイス 助動詞の総まとめ：助動詞の強さ アドバイスをやわらかくするチャンク（i think you should / maybe you should / you could / you might want to / it might help to / there&#x27;s no need to / try not to / be careful not to）">
+<div class="day-top"><span class="day-n">DAY<b>26</b></span><span class="count">2 items</span></div>
+<h3>助動詞でアドバイス</h3>
+<ol class="items"><li>助動詞の総まとめ：助動詞の強さ</li><li>アドバイスをやわらかくするチャンク（I think you should / Maybe you should / You could / You might want to / It might help to / There&#x27;s no need to / Try not to / Be careful not to）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1TY8wMI8lAQE5-B6_KlYJbs1UzYP4tbQd/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article></div></section><section class="week" id="week5">
+<header class="week-head"><span class="week-num" aria-hidden="true">05</span><div><span class="week-label">WEEK 5</span><h2>比較級・最上級</h2></div></header>
+<div class="days"><article class="day" data-text="比較級の基本 比較級とは？（-er / more） 不規則に変化する比較級 more＋名詞（数・量が多い） a little / much / far で強さを調整する">
+<div class="day-top"><span class="day-n">DAY<b>29</b></span><span class="count">4 items</span></div>
+<h3>比較級の基本</h3>
+<ol class="items"><li>比較級とは？（-er / more）</li><li>不規則に変化する比較級</li><li>more＋名詞（数・量が多い）</li><li>a little / much / far で強さを調整する</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1pWjbCszJq6-K5ntMrwN_fVV5Us6Q6Q60/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="形容詞・副詞の比較級 形容詞の比較級：a is 比較級 than b 副詞の比較級：a 動詞 比較級 than b 比較級の否定：a is not 比較級 than b better at / worse at（比較級と動名詞の組み合わせ）">
+<div class="day-top"><span class="day-n">DAY<b>30</b></span><span class="count">4 items</span></div>
+<h3>形容詞・副詞の比較級</h3>
+<ol class="items"><li>形容詞の比較級：A is 比較級 than B</li><li>副詞の比較級：A 動詞 比較級 than B</li><li>比較級の否定：A is not 比較級 than B</li><li>better at / worse at（比較級と動名詞の組み合わせ）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1iXAVXaUmvaihFoz6r-uZ97_lU7Mmb3UM/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="比較の対象と量の比較 比べる対象の表し方（than before / than i expected / than usual など） more / less の量の比較（不可算名詞） much / a little / far を使った「強さの調整」">
+<div class="day-top"><span class="day-n">DAY<b>31</b></span><span class="count">3 items</span></div>
+<h3>比較の対象と量の比較</h3>
+<ol class="items"><li>比べる対象の表し方（than before / than I expected / than usual など）</li><li>more / less の量の比較（不可算名詞）</li><li>much / a little / far を使った「強さの調整」</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1BD_BFq-y_cChtpUTqJsw0YXmKxGzRdY0/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="最上級 形容詞・副詞の最上級：the＋最上級（in / of） 不規則に変化する最上級 最上級の強さを調節する表現（by far / i have ever / one of / the second） 比較級で最上級の意味を表す表現（than any other / no other）">
+<div class="day-top"><span class="day-n">DAY<b>32</b></span><span class="count">4 items</span></div>
+<h3>最上級</h3>
+<ol class="items"><li>形容詞・副詞の最上級：the＋最上級（in / of）</li><li>不規則に変化する最上級</li><li>最上級の強さを調節する表現（by far / I have ever / one of / the second）</li><li>比較級で最上級の意味を表す表現（than any other / No other）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1s6VCSX8Wbz7lqt2vVGiVWVL_xs17lWJN/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="比較級で成長を語る 比較級（better / more〜 / less〜）「前より〇〇」 成長の表現（i became / i have become / i feel more …） 過去の自分 vs 今の自分（before, i... / now, i...）／理由づけ（because...） 未来の自分（i&#x27;ll be … / i want to … / i&#x27;m going to … / i&#x27;ll keep -ing）">
+<div class="day-top"><span class="day-n">DAY<b>33</b></span><span class="count">4 items</span></div>
+<h3>比較級で成長を語る</h3>
+<ol class="items"><li>比較級（better / more〜 / less〜）「前より〇〇」</li><li>成長の表現（I became / I have become / I feel more …）</li><li>過去の自分 vs 今の自分（Before, I... / Now, I...）／理由づけ（because...）</li><li>未来の自分（I&#x27;ll be … / I want to … / I&#x27;m going to … / I&#x27;ll keep -ing）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1pHJcowh_U7GDyIGe7fKr-H1Jlgf4A2sM/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article></div></section><section class="week" id="week6">
+<header class="week-head"><span class="week-num" aria-hidden="true">06</span><div><span class="week-label">WEEK 6</span><h2>仮定法（If構文）</h2></div></header>
+<div class="days"><article class="day" data-text="if＋現在 と if＋過去の基本 if＋現在, will / be going to（今の現実をもとにした未来） 仮定法：if＋過去, would（現実ではない想像） 助動詞（might / could）を使った柔らかい表現">
+<div class="day-top"><span class="day-n">DAY<b>36</b></span><span class="count">3 items</span></div>
+<h3>If＋現在 と If＋過去の基本</h3>
+<ol class="items"><li>If＋現在, will / be going to（今の現実をもとにした未来）</li><li>仮定法：If＋過去, would（現実ではない想像）</li><li>助動詞（might / could）を使った柔らかい表現</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1k3zMALyZoZkMjDN0eRbDGg5SZHngK1Vb/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="if＋過去 would と if＋現在 will の使い分け 復習：if＋過去, would（非現実の仮定・if i were） 復習：if＋現在, will / be going to（現実の未来） （テーマ外補足）仮定法過去完了：if＋had＋過去分詞, would have＋過去分詞 （テーマ外補足）ミックス型：if＋had＋過去分詞, would＋動詞の原形（now）">
+<div class="day-top"><span class="day-n">DAY<b>37</b></span><span class="count">4 items</span></div>
+<h3>If＋過去 would と If＋現在 will の使い分け</h3>
+<ol class="items"><li>復習：If＋過去, would（非現実の仮定・If I were）</li><li>復習：If＋現在, will / be going to（現実の未来）</li><li>（テーマ外補足）仮定法過去完了：If＋had＋過去分詞, would have＋過去分詞</li><li>（テーマ外補足）ミックス型：If＋had＋過去分詞, would＋動詞の原形（now）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1ExlQP77tCcwbDwxquJjw2-PYsTPOMgJr/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="if＋過去（could / would / might） if節の中に could が入る形 復習：主節の中に could / might が入る形 過去形＝距離感のイメージ">
+<div class="day-top"><span class="day-n">DAY<b>38</b></span><span class="count">3 items</span></div>
+<h3>If＋過去（could / would / might）</h3>
+<ol class="items"><li>If節の中に could が入る形</li><li>復習：主節の中に could / might が入る形</li><li>過去形＝距離感のイメージ</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1tnHhGd1xqko2PnpEvSNHrT5h-dZoB9pa/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="if節の省略 if節を省略して仮定の意味を表す 文の中に仮定要素がある場合のif節省略パターン（in that situation / a person like him / to不定詞 など）">
+<div class="day-top"><span class="day-n">DAY<b>39</b></span><span class="count">2 items</span></div>
+<h3>If節の省略</h3>
+<ol class="items"><li>If節を省略して仮定の意味を表す</li><li>文の中に仮定要素がある場合のIf節省略パターン（In that situation / A person like him / to不定詞 など）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1cuFE-HbmlvRI01klwLBvylnByQymzyfl/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="when と if の違い（week6まとめ） when と if の違い 復習：if＋現在, will 復習：if＋現在, be going to">
+<div class="day-top"><span class="day-n">DAY<b>40</b></span><span class="count">3 items</span></div>
+<h3>When と If の違い（Week6まとめ）</h3>
+<ol class="items"><li>When と If の違い</li><li>復習：If＋現在, will</li><li>復習：If＋現在, be going to</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1XNYOhx9bQqjbSTow028bGfy6UQxexjc_/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article></div></section><section class="week" id="week7">
+<header class="week-head"><span class="week-num" aria-hidden="true">07</span><div><span class="week-label">WEEK 7</span><h2>現在完了</h2></div></header>
+<div class="days"><article class="day" data-text="経験 現在完了は何を表すのか 経験を表す現在完了（ever / never） have been to と have gone to 経験の回数表現（once / twice / a few times / many times）">
+<div class="day-top"><span class="day-n">DAY<b>43</b></span><span class="count">4 items</span></div>
+<h3>経験</h3>
+<ol class="items"><li>現在完了は何を表すのか</li><li>経験を表す現在完了（ever / never）</li><li>have been to と have gone to</li><li>経験の回数表現（once / twice / a few times / many times）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1q4oeaA_bbiklbttLjC0ObIPLIczuG4zY/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="現在完了と過去形 現在完了と過去形の使い分け 現在完了の受け身（have / has been＋過去分詞） 現在完了と一緒に使えない語（yesterday / last week / 〜 ago など） 現在完了の疑問文・否定文の作り方">
+<div class="day-top"><span class="day-n">DAY<b>44</b></span><span class="count">4 items</span></div>
+<h3>現在完了と過去形</h3>
+<ol class="items"><li>現在完了と過去形の使い分け</li><li>現在完了の受け身（have / has been＋過去分詞）</li><li>現在完了と一緒に使えない語（yesterday / last week / 〜 ago など）</li><li>現在完了の疑問文・否定文の作り方</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/184jKnuFUBeyitkK1bChbxeO3Ctq5lLnU/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="継続 継続を表す現在完了（for / since） always / all my life などの継続表現 how long have you...?（継続の疑問文） since＋主語＋過去形（〜して以来）">
+<div class="day-top"><span class="day-n">DAY<b>45</b></span><span class="count">4 items</span></div>
+<h3>継続</h3>
+<ol class="items"><li>継続を表す現在完了（for / since）</li><li>always / all my life などの継続表現</li><li>How long have you...?（継続の疑問文）</li><li>since＋主語＋過去形（〜して以来）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1pssGth4KKO960RjuRM0dylt3rXC6pURm/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="完了・結果 結果を表す現在完了 完了を表す現在完了（just / already / yet） not...yet（まだ〜していない） so far / up to now（今のところ）">
+<div class="day-top"><span class="day-n">DAY<b>46</b></span><span class="count">4 items</span></div>
+<h3>完了・結果</h3>
+<ol class="items"><li>結果を表す現在完了</li><li>完了を表す現在完了（just / already / yet）</li><li>not...yet（まだ〜していない）</li><li>so far / up to now（今のところ）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1g97T6CroYlk3CHXxTQwEgSaIG9IgWYcC/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="総復習 総復習：現在完了の3つの用法 経験を強調する最上級表現：the＋最上級＋(that)＋have ever＋過去分詞 現在完了を組み合わせて話す（1文の中で複数の用法） but / yet を使って複雑な気持ちを表す i believe... / i think... を使って意見を自然に足す">
+<div class="day-top"><span class="day-n">DAY<b>47</b></span><span class="count">5 items</span></div>
+<h3>総復習</h3>
+<ol class="items"><li>総復習：現在完了の3つの用法</li><li>経験を強調する最上級表現：the＋最上級＋(that)＋have ever＋過去分詞</li><li>現在完了を組み合わせて話す（1文の中で複数の用法）</li><li>but / yet を使って複雑な気持ちを表す</li><li>I believe... / I think... を使って意見を自然に足す</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1TU1jz8-yN5MjQG4NV8kAHrmzusDweCw5/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article></div></section><section class="week" id="week8">
+<header class="week-head"><span class="week-num" aria-hidden="true">08</span><div><span class="week-label">WEEK 8</span><h2>関係詞</h2></div></header>
+<div class="days"><article class="day" data-text="who / whose 関係代名詞 who（主格） 関係代名詞 who（目的格） 関係代名詞が前置詞の目的語になるパターン 関係代名詞 whose（所有格）">
+<div class="day-top"><span class="day-n">DAY<b>50</b></span><span class="count">4 items</span></div>
+<h3>who / whose</h3>
+<ol class="items"><li>関係代名詞 who（主格）</li><li>関係代名詞 who（目的格）</li><li>関係代名詞が前置詞の目的語になるパターン</li><li>関係代名詞 whose（所有格）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1vBDjvvyV1LE1QEfA6Q7XkBpQY-3J7X3Z/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="which / that / where / when 関係代名詞 which（主格） 関係代名詞 which（目的格） 関係代名詞：万能な that 関係副詞 where 関係副詞 when">
+<div class="day-top"><span class="day-n">DAY<b>51</b></span><span class="count">5 items</span></div>
+<h3>which / that / where / when</h3>
+<ol class="items"><li>関係代名詞 which（主格）</li><li>関係代名詞 which（目的格）</li><li>関係代名詞：万能な that</li><li>関係副詞 where</li><li>関係副詞 when</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1-ufN4UD_qo-fADQUN-xTpjeU4wY4jYo6/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="what 関係代名詞 what の使い方（= the thing that） what を使った定型表現（what s used to be / what s is today / what is called / what is more / what i am / what little＋名詞） 疑問詞の what との違い">
+<div class="day-top"><span class="day-n">DAY<b>52</b></span><span class="count">3 items</span></div>
+<h3>what</h3>
+<ol class="items"><li>関係代名詞 what の使い方（= the thing that）</li><li>what を使った定型表現（what S used to be / what S is today / what is called / what is more / what I am / what little＋名詞）</li><li>疑問詞の what との違い</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1hzRy2EM7Rjyl0rxVjM4AAP2yk-TlF-Ur/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="how / why 関係副詞 how（= the way） 関係副詞 why（the reason why） つまずきポイント：関係詞の中を疑問文の語順にしない">
+<div class="day-top"><span class="day-n">DAY<b>53</b></span><span class="count">3 items</span></div>
+<h3>how / why</h3>
+<ol class="items"><li>関係副詞 how（= the way）</li><li>関係副詞 why（the reason why）</li><li>つまずきポイント：関係詞の中を疑問文の語順にしない</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1CnP24e7i_-YCr9lIKoPc01h7e50vck6G/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="複合関係詞 関係詞＋ever（whoever / whichever / whatever / wherever / however） no matter who / what / where / when / how との書き換え">
+<div class="day-top"><span class="day-n">DAY<b>54</b></span><span class="count">2 items</span></div>
+<h3>複合関係詞</h3>
+<ol class="items"><li>関係詞＋ever（whoever / whichever / whatever / wherever / however）</li><li>no matter who / what / where / when / how との書き換え</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1Vyge2lYKjz2dOwnotZ3e2JE21eNPkWAH/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article></div></section><section class="week" id="week9">
+<header class="week-head"><span class="week-num" aria-hidden="true">09</span><div><span class="week-label">WEEK 9</span><h2>時制のミックス・〜ed形の発展・完了形の発展</h2></div></header>
+<div class="days"><article class="day" data-text="現在形を使うタイミング・get受動態 復習：現在形を使うタイミング総まとめ（気持ち・記憶／一般論／習慣／確定した予定） 時を表す接続詞の直後は現在形（未来のことでも） get を使った受動態（be との違い）">
+<div class="day-top"><span class="day-n">DAY<b>57</b></span><span class="count">3 items</span></div>
+<h3>現在形を使うタイミング・get受動態</h3>
+<ol class="items"><li>復習：現在形を使うタイミング総まとめ（気持ち・記憶／一般論／習慣／確定した予定）</li><li>時を表す接続詞の直後は現在形（未来のことでも）</li><li>get を使った受動態（be との違い）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/14SsOthytaVldy2qPaHyToscZGonCNRCD/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="群動詞の受動態・感情を表す受動態 群動詞の受動態（laugh at / cheer on など） be動詞＋過去分詞＋前置詞（about / at / with / in）で「感情」を表す">
+<div class="day-top"><span class="day-n">DAY<b>58</b></span><span class="count">2 items</span></div>
+<h3>群動詞の受動態・感情を表す受動態</h3>
+<ol class="items"><li>群動詞の受動態（laugh at / cheer on など）</li><li>be動詞＋過去分詞＋前置詞（about / at / with / in）で「感情」を表す</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1zoAdIjE-9r-df32FvDDW5gyOMwX454VG/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="未来完了・whose 発展：未来完了（will have＋過去分詞：完了・継続・経験、by the time） 応用：未来完了進行形（will have been＋-ing） 復習：関係代名詞の所有格 whose（人・物・場所）">
+<div class="day-top"><span class="day-n">DAY<b>59</b></span><span class="count">3 items</span></div>
+<h3>未来完了・whose</h3>
+<ol class="items"><li>発展：未来完了（will have＋過去分詞：完了・継続・経験、by the time）</li><li>応用：未来完了進行形（will have been＋-ing）</li><li>復習：関係代名詞の所有格 whose（人・物・場所）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1_ujWg3KDqc9OgYApQucF8lpldBX9rLyN/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="used to と would often used to と would often の違い 復習：動詞＋to do でこれからの行動を表す（decide / try / manage / learn / start など）">
+<div class="day-top"><span class="day-n">DAY<b>60</b></span><span class="count">2 items</span></div>
+<h3>used to と would often</h3>
+<ol class="items"><li>used to と would often の違い</li><li>復習：動詞＋to do でこれからの行動を表す（decide / try / manage / learn / start など）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1QQK1zYPdz_EIQoqCQxtTEVe2N3WiK2Ab/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="分詞形容詞・when/if＋現在完了 分詞形容詞（-ing / -ed：exciting / excited など） when / if に続く文で使う現在完了形">
+<div class="day-top"><span class="day-n">DAY<b>61</b></span><span class="count">2 items</span></div>
+<h3>分詞形容詞・when/if＋現在完了</h3>
+<ol class="items"><li>分詞形容詞（-ing / -ed：exciting / excited など）</li><li>when / if に続く文で使う現在完了形</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/17UL3h8NKZWF_nsF4iM3bt-TApFCkBJsa/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article></div></section><section class="week" id="week10">
+<header class="week-head"><span class="week-num" aria-hidden="true">10</span><div><span class="week-label">WEEK 10</span><h2>賛成・反対表現（助動詞・比較表現の発展・間接疑問）</h2></div></header>
+<div class="days"><article class="day" data-text="the比較級, the比較級・too〜to / enough to 応用：比較級 the＋比較級, the＋比較級（〜すればするほど） 応用：不定詞 too〜to / 〜enough to">
+<div class="day-top"><span class="day-n">DAY<b>64</b></span><span class="count">2 items</span></div>
+<h3>the比較級, the比較級・too〜to / enough to</h3>
+<ol class="items"><li>応用：比較級 the＋比較級, the＋比較級（〜すればするほど）</li><li>応用：不定詞 too〜to / 〜enough to</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1FaJXBwRl2_fH05qcQHB7vgS9WOMC5Pvo/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="意見の強さの調整・間接疑問 復習：助動詞（might / should / must）を使い分けて意見の強さを調節する 間接疑問（do you think＋肯定文? / i want to know＋疑問詞＋肯定文 / could you tell me＋疑問詞＋肯定文?）">
+<div class="day-top"><span class="day-n">DAY<b>65</b></span><span class="count">2 items</span></div>
+<h3>意見の強さの調整・間接疑問</h3>
+<ol class="items"><li>復習：助動詞（might / should / must）を使い分けて意見の強さを調節する</li><li>間接疑問（Do you think＋肯定文? / I want to know＋疑問詞＋肯定文 / Could you tell me＋疑問詞＋肯定文?）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1y7BAyiSECHGwwpzTZ26-bQxwNw6qLDTI/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="会話の助動詞表現・if / whether 復習：会話でよく使う助動詞表現（had better / be supposed to / might as well） if / whether を使った間接疑問（〜かどうか、or not）">
+<div class="day-top"><span class="day-n">DAY<b>66</b></span><span class="count">2 items</span></div>
+<h3>会話の助動詞表現・if / whether</h3>
+<ol class="items"><li>復習：会話でよく使う助動詞表現（had better / be supposed to / might as well）</li><li>if / whether を使った間接疑問（〜かどうか、or not）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1FGQNkH0cGzWjfRFWAoAS7PN1_pecwpag/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="mustn&#x27;t と don&#x27;t have to・疑問詞＋do you think 応用：疑問詞＋do you think＋主語＋動詞...? mustn&#x27;t と don&#x27;t have to の違い">
+<div class="day-top"><span class="day-n">DAY<b>67</b></span><span class="count">2 items</span></div>
+<h3>mustn&#x27;t と don&#x27;t have to・疑問詞＋do you think</h3>
+<ol class="items"><li>応用：疑問詞＋do you think＋主語＋動詞...?</li><li>mustn&#x27;t と don&#x27;t have to の違い</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1mt_qCuhMOFFk1TtCdjoSW3wjKpss1cZj/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="助動詞の過去形の距離感・助動詞＋have＋過去分詞 助動詞の過去形は「今ここから離れた感じ」（時間・心理・仮定の距離、will / would） 助動詞＋have＋過去分詞（might / may / could / must have＋過去分詞：過去への推測）">
+<div class="day-top"><span class="day-n">DAY<b>68</b></span><span class="count">2 items</span></div>
+<h3>助動詞の過去形の距離感・助動詞＋have＋過去分詞</h3>
+<ol class="items"><li>助動詞の過去形は「今ここから離れた感じ」（時間・心理・仮定の距離、will / would）</li><li>助動詞＋have＋過去分詞（might / may / could / must have＋過去分詞：過去への推測）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1xwBsbZQbHwNiRygIAuz0ILIuJCn6LCyR/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article></div></section><section class="week" id="week11">
+<header class="week-head"><span class="week-num" aria-hidden="true">11</span><div><span class="week-label">WEEK 11</span><h2>Week1〜10の文法の発展</h2></div></header>
+<div class="days"><article class="day" data-text="i wish / if only・疑問詞＋to不定詞 仮定法の願望：i wish / if only（今の願い／これからの願い would／過去の後悔 had＋過去分詞） 応用：疑問詞＋to不定詞（what / which / who / when / where / how to）">
+<div class="day-top"><span class="day-n">DAY<b>71</b></span><span class="count">2 items</span></div>
+<h3>I wish / If only・疑問詞＋to不定詞</h3>
+<ol class="items"><li>仮定法の願望：I wish / If only（今の願い／これからの願い would／過去の後悔 had＋過去分詞）</li><li>応用：疑問詞＋to不定詞（what / which / who / when / where / how to）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1PV6cVhdMXYAoPa1cxSkBLOm9kSWvbPh0/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="助動詞の意味整理・ifを使わない仮定 復習：助動詞を「意味」で整理する（許可・依頼・義務/必要・可能性） 応用：if を使わずに仮定の意味を表す（without / otherwise / 場所・時・主語に仮定が入る）">
+<div class="day-top"><span class="day-n">DAY<b>72</b></span><span class="count">2 items</span></div>
+<h3>助動詞の意味整理・ifを使わない仮定</h3>
+<ol class="items"><li>復習：助動詞を「意味」で整理する（許可・依頼・義務/必要・可能性）</li><li>応用：if を使わずに仮定の意味を表す（without / otherwise / 場所・時・主語に仮定が入る）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1JqkxpXz3aSewJfWoUaK6lh0Bt3MyuF5r/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="原級比較 as ... as ... not as ... as ... 副詞が入る形 倍数表現（twice / three times as ... as） 分数表現（half / one-third as ... as）">
+<div class="day-top"><span class="day-n">DAY<b>73</b></span><span class="count">5 items</span></div>
+<h3>原級比較</h3>
+<ol class="items"><li>as ... as ...</li><li>not as ... as ...</li><li>副詞が入る形</li><li>倍数表現（twice / three times as ... as）</li><li>分数表現（half / one-third as ... as）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1yXvCEsvcY3g6_-jkNAsU0pkcDvweV2TN/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="as if の仮定法・比較級で最上級 応用：as if の仮定法（as if＋過去形 / as if＋had＋過去分詞） 応用：比較級で「一番だ」という表現（than any other＋単数名詞 / than all the others）">
+<div class="day-top"><span class="day-n">DAY<b>74</b></span><span class="count">2 items</span></div>
+<h3>as if の仮定法・比較級で最上級</h3>
+<ol class="items"><li>応用：as if の仮定法（as if＋過去形 / as if＋had＋過去分詞）</li><li>応用：比較級で「一番だ」という表現（than any other＋単数名詞 / than all the others）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1jyi6MWiVG4vi7ZJg12Hyz_S2AZJBeRDH/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="現在完了進行形・whether 現在完了進行形（have / has been＋-ing） 論点を示す間接疑問（the question is whether... / what matters is whether...）">
+<div class="day-top"><span class="day-n">DAY<b>75</b></span><span class="count">2 items</span></div>
+<h3>現在完了進行形・whether</h3>
+<ol class="items"><li>現在完了進行形（have / has been＋-ing）</li><li>論点を示す間接疑問（The question is whether... / What matters is whether...）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1RTEbO-JJ2BKbEZuGrKAAbxfUIwlUrd3H/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article></div></section><section class="week" id="week12">
+<header class="week-head"><span class="week-num" aria-hidden="true">12</span><div><span class="week-label">WEEK 12</span><h2>全文法の総復習</h2></div></header>
+<div class="days"><article class="day" data-text="助動詞の総まとめ 助動詞の総まとめ（参照day付き一覧） 似ていて迷いやすいところ（can/could/be able to、may/might/could、should/had better、must/have to、must not/don&#x27;t have to、will/would）">
+<div class="day-top"><span class="day-n">DAY<b>78</b></span><span class="count">2 items</span></div>
+<h3>助動詞の総まとめ</h3>
+<ol class="items"><li>助動詞の総まとめ（参照Day付き一覧）</li><li>似ていて迷いやすいところ（can/could/be able to、may/might/could、should/had better、must/have to、must not/don&#x27;t have to、will/would）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1QTzGJuHIYeHl2pXq4rOwfE-uAcLDxbRV/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="比較表現の総まとめ 比較表現の総まとめ（比較級・最上級の変化の仕方、as...as、the＋比較級 など。参照day付き）">
+<div class="day-top"><span class="day-n">DAY<b>79</b></span><span class="count">1 items</span></div>
+<h3>比較表現の総まとめ</h3>
+<ol class="items"><li>比較表現の総まとめ（比較級・最上級の変化の仕方、as...as、the＋比較級 など。参照Day付き）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1Gqi5KKsSaoK0ka_egLNNEYmfcKoYReT3/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="関係詞の総まとめ 関係詞の総まとめ（主格・目的格・whose・where/when・what・how/why・関係詞＋ever。参照day付き）">
+<div class="day-top"><span class="day-n">DAY<b>80</b></span><span class="count">1 items</span></div>
+<h3>関係詞の総まとめ</h3>
+<ol class="items"><li>関係詞の総まとめ（主格・目的格・whose・where/when・what・how/why・関係詞＋ever。参照Day付き）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1ZPcf1KRw3l07fU5q1U0gi3Lmz5r17JGY/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="現在完了の総まとめ 現在完了の総まとめ（経験・継続・完了/未完、一緒に使いやすい語。参照day付き）">
+<div class="day-top"><span class="day-n">DAY<b>81</b></span><span class="count">1 items</span></div>
+<h3>現在完了の総まとめ</h3>
+<ol class="items"><li>現在完了の総まとめ（経験・継続・完了/未完、一緒に使いやすい語。参照Day付き）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1bumovB_Dj04RaSaEtyPMQAupQXQM6iw0/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article><article class="day" data-text="仮定法の総まとめ 仮定法の総まとめ（if＋過去, would / could・might / if i were / 現実のifとの違い） 使い分け方（起こりうる未来・予定している未来・理想/想像） 全文法 総復習インデックス（week別）">
+<div class="day-top"><span class="day-n">DAY<b>82</b></span><span class="count">3 items</span></div>
+<h3>仮定法の総まとめ</h3>
+<ol class="items"><li>仮定法の総まとめ（If＋過去, would / could・might / If I were / 現実のIfとの違い）</li><li>使い分け方（起こりうる未来・予定している未来・理想/想像）</li><li>全文法 総復習インデックス（Week別）</li></ol>
+<a class="pdf" href="https://drive.google.com/file/d/1Ax9hIviXFmnfiE0AqMIC6c-_zFmMNHGj/view" target="_blank" rel="noopener"><span>Step2 教材を開く</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a>
+</article></div></section><p id="empty" class="empty" hidden>該当する文法が見つかりません。別の言葉で検索してください。</p></main>
+<footer class="wrap">各Dayの教材にある「Grammar Focus」の見出しを1項目として掲載しています。</footer>
+<script>
+(function(){
+  var q=document.getElementById('q'),days=[].slice.call(document.querySelectorAll('.day')),weeks=[].slice.call(document.querySelectorAll('.week')),empty=document.getElementById('empty');
+  q.addEventListener('input',function(){
+    var t=q.value.trim().toLowerCase(),any=false;
+    days.forEach(function(d){d.hidden=!!t&&d.dataset.text.indexOf(t)<0;});
+    weeks.forEach(function(w){var v=w.querySelectorAll('.day:not([hidden])').length>0;w.hidden=!v;if(v)any=true;});
+    empty.hidden=any;
+  });
+})();
+</script>
+</body>
+</html>
